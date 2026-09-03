@@ -64,7 +64,11 @@
     letter-spacing: -0.6px;
   }
 
-  .brand-text p { margin: 4px 0 0; font-size: 12.5px; color: var(--ink-soft); }
+  .brand-text p {
+    margin: 4px 0 0;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
 
   .status-pill {
     display: flex;
@@ -79,12 +83,25 @@
     white-space: nowrap;
   }
 
-  .status-pill.stale { background: var(--stale-bg); color: var(--stale); }
-  .status-pill.danger { background: var(--danger-bg); color: var(--danger); }
-  .status-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .status-pill.stale {
+    background: var(--stale-bg);
+    color: var(--stale);
+  }
+
+  .status-pill.danger {
+    background: var(--danger-bg);
+    color: var(--danger);
+  }
+
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+  }
 
   /* =========================================================
-     LAYOUT — 고정 목록(좌) + 고정 상세(우), 둘 다 크기 불변
+     LAYOUT — 고정 목록(좌) + 고정 상세(우)
   ========================================================= */
 
   .layout {
@@ -97,12 +114,45 @@
     align-items: start;
   }
 
-  /* ---------- 좌측: 관측소 목록 (고정 크기 카드) ---------- */
+  /* ---------- 좌측: 관측소 목록 ---------- */
 
   .station-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
+  }
+
+  /* ---------- 관측소 정렬 ---------- */
+
+  .station-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    padding: 0 6px;
+  }
+
+  .station-toolbar-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink-faint);
+  }
+
+  .station-sort {
+    border: 1px solid var(--line);
+    background: var(--paper);
+    color: var(--ink-soft);
+    border-radius: 8px;
+    padding: 7px 10px;
+    font-family: inherit;
+    font-size: 11.5px;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .station-sort:focus {
+    border-color: var(--accent);
   }
 
   .station-card {
@@ -121,7 +171,9 @@
     transition: background 0.15s;
   }
 
-  .station-card:not(.active):hover { background: #f2f5f7; }
+  .station-card:not(.active):hover {
+    background: #f2f5f7;
+  }
 
   .station-card .row-top {
     display: flex;
@@ -174,13 +226,29 @@
     transition: color 0.15s;
   }
 
-  .station-card .mini-delta { font-size: 15px; font-weight: 700; }
-  .station-card .mini-delta.up { color: var(--danger); }
-  .station-card .mini-delta.down { color: var(--delta-down); }
-  .station-card .mini-delta.same { color: var(--ink-faint); font-size: 20px; font-weight: 800; }
-  .station-card .mini-delta.stale { color: var(--stale); }
+  .station-card .mini-delta {
+    font-size: 15px;
+    font-weight: 700;
+  }
 
-  /* 선택되지 않은 관측소는 전부 회색으로 죽여서, 선택된 것만 도드라지게 */
+  .station-card .mini-delta.up {
+    color: var(--danger);
+  }
+
+  .station-card .mini-delta.down {
+    color: var(--delta-down);
+  }
+
+  .station-card .mini-delta.same {
+    color: var(--ink-faint);
+    font-size: 20px;
+    font-weight: 800;
+  }
+
+  .station-card .mini-delta.stale {
+    color: var(--stale);
+  }
+
   .station-card:not(.active) .name,
   .station-card:not(.active) .mini-value,
   .station-card:not(.active) .mini-delta,
@@ -188,12 +256,26 @@
     color: var(--grey) !important;
   }
 
-  .card-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-  .card-dot.fresh { background: var(--fresh); }
-  .card-dot.stale { background: var(--stale); }
-  .card-dot.danger { background: var(--danger); }
+  .card-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
 
-  /* ---------- 우측: 상세 패널 (고정 자리, 내용만 교체) ---------- */
+  .card-dot.fresh {
+    background: var(--fresh);
+  }
+
+  .card-dot.stale {
+    background: var(--stale);
+  }
+
+  .card-dot.danger {
+    background: var(--danger);
+  }
+
+  /* ---------- 우측: 상세 패널 ---------- */
 
   .detail-panel {
     background: var(--paper);
@@ -203,7 +285,11 @@
     min-height: 560px;
   }
 
-  .panel-eyebrow { font-size: 12px; color: var(--ink-faint); font-weight: 600; }
+  .panel-eyebrow {
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-weight: 600;
+  }
 
   .panel-title-row {
     display: flex;
@@ -230,9 +316,20 @@
     white-space: nowrap;
   }
 
-  .state-badge.fresh { background: var(--fresh-bg); color: var(--fresh); }
-  .state-badge.stale { background: var(--stale-bg); color: var(--stale); }
-  .state-badge.danger { background: var(--danger-bg); color: var(--danger); }
+  .state-badge.fresh {
+    background: var(--fresh-bg);
+    color: var(--fresh);
+  }
+
+  .state-badge.stale {
+    background: var(--stale-bg);
+    color: var(--stale);
+  }
+
+  .state-badge.danger {
+    background: var(--danger-bg);
+    color: var(--danger);
+  }
 
   /* ---------- 물결 시각화 ---------- */
 
@@ -244,7 +341,6 @@
     overflow: hidden;
     background: #eef3f6;
     border: 1px solid var(--line);
-    /* 4. 오목한 수조 느낌의 안쪽 그림자 */
     box-shadow:
       inset 0 10px 18px -6px rgba(16, 26, 36, 0.22),
       inset 0 -1px 0 rgba(16, 26, 36, 0.06),
@@ -254,18 +350,21 @@
 
   .wave-fill {
     position: absolute;
-    left: 0; right: 0; bottom: 0;
-    height: 55%; /* JS가 값에 맞춰 조정 */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 55%;
     overflow: hidden;
     transition: height 0.6s ease;
-    /* 5. 관측소(강)별 색조 — 기본값은 accent, JS가 인라인으로 --wave-color 지정 */
     --wave-color: var(--accent);
   }
 
   .wave-fill svg {
     position: absolute;
-    top: 0; left: 0;
-    width: 220%; height: 46px;
+    top: 0;
+    left: 0;
+    width: 220%;
+    height: 46px;
   }
 
   .wave-back {
@@ -280,11 +379,12 @@
     animation: wave-drift 4.2s linear infinite reverse;
   }
 
-  /* 1. 수면 하이라이트 — 앞 물결의 능선을 따라 흐르는 밝은 선 */
   .wave-highlight-svg {
     position: absolute;
-    top: 0; left: 0;
-    width: 220%; height: 46px;
+    top: 0;
+    left: 0;
+    width: 220%;
+    height: 46px;
     animation: wave-drift 4.2s linear infinite reverse;
     pointer-events: none;
   }
@@ -318,22 +418,31 @@
     opacity: 0.92;
   }
 
-  .wave-fill.stale .wave-body { background: var(--grey); opacity: 0.55; }
+  .wave-fill.stale .wave-body {
+    background: var(--grey);
+    opacity: 0.55;
+  }
 
   @keyframes wave-drift {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 
   .yesterday-line {
     position: absolute;
-    left: 0; right: 0;
+    left: 0;
+    right: 0;
     border-top: 2px dashed rgba(16,26,36,0.35);
   }
 
   .yesterday-line span {
     position: absolute;
-    right: 10px; top: -18px;
+    right: 10px;
+    top: -18px;
     font-size: 10.5px;
     color: var(--ink-soft);
     background: rgba(255,255,255,0.85);
@@ -341,9 +450,6 @@
     border-radius: 6px;
   }
 
-  /* 오늘 물 속에 잠긴 어제 수위선 — 밝은 점선 + 어두운 라벨로 물 위에서도 보이게 */
-  /* wave-body(단색 영역) 위에 그려지는 선 — same(경계 정확히 일치) / submerged(잠김) 공용.
-     항상 맨 마지막에 렌더링되어 다른 레이어에 가려지지 않는다. */
   .yesterday-line.submerged,
   .yesterday-line.same-line {
     border-top: 3px dashed rgba(255,255,255,0.95);
@@ -355,7 +461,7 @@
   .yesterday-line.same-line span {
     color: #fff;
     background: rgba(16,26,36,0.6);
-    top: 5px; /* 선 아래쪽(컨테이너 안쪽)에 라벨 배치 - 잘림 방지 */
+    top: 5px;
     right: auto;
     left: 10px;
   }
@@ -382,18 +488,25 @@
     margin-bottom: -1px;
   }
 
-  .tab-btn.active { color: var(--ink); border-bottom-color: var(--ink); }
+  .tab-btn.active {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+  }
 
   /* ---------- 일별 기록 탭 ---------- */
 
-  .log-list { margin-top: 6px; }
+  .log-list {
+    margin-top: 6px;
+  }
 
   .log-row {
     padding: 16px 0;
     border-bottom: 1px solid var(--line);
   }
 
-  .log-row:last-child { border-bottom: none; }
+  .log-row:last-child {
+    border-bottom: none;
+  }
 
   .log-top {
     display: flex;
@@ -408,10 +521,22 @@
     letter-spacing: 0.2px;
   }
 
-  .log-delta { font-size: 12px; font-weight: 800; }
-  .log-delta.up { color: var(--danger); }
-  .log-delta.down { color: var(--accent); }
-  .log-delta.same { color: var(--ink-faint); }
+  .log-delta {
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .log-delta.up {
+    color: var(--danger);
+  }
+
+  .log-delta.down {
+    color: var(--accent);
+  }
+
+  .log-delta.same {
+    color: var(--ink-faint);
+  }
 
   .log-value {
     margin-top: 5px;
@@ -420,7 +545,13 @@
     font-weight: 600;
   }
 
-  .log-value .unit { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--ink-soft); margin-left: 4px; }
+  .log-value .unit {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-left: 4px;
+  }
 
   .log-meta {
     margin-top: 4px;
@@ -459,12 +590,28 @@
     margin-left: 5px;
   }
 
-  .value-row .delta { font-size: 15px; font-weight: 800; }
-  .value-row .delta.up { color: var(--danger); }
-  .value-row .delta.down { color: var(--accent); }
-  .value-row .delta.same { color: var(--ink-faint); }
+  .value-row .delta {
+    font-size: 15px;
+    font-weight: 800;
+  }
 
-  .observed { margin-top: 6px; font-size: 12.5px; color: var(--ink-faint); }
+  .value-row .delta.up {
+    color: var(--danger);
+  }
+
+  .value-row .delta.down {
+    color: var(--accent);
+  }
+
+  .value-row .delta.same {
+    color: var(--ink-faint);
+  }
+
+  .observed {
+    margin-top: 6px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+  }
 
   .stale-flag {
     display: inline-block;
@@ -491,7 +638,11 @@
     color: var(--ink-soft);
   }
 
-  .note .note-icon { flex-shrink: 0; font-size: 12px; line-height: 1.55; }
+  .note .note-icon {
+    flex-shrink: 0;
+    font-size: 12px;
+    line-height: 1.55;
+  }
 
   .note.note-test {
     color: #8a6a26;
@@ -507,7 +658,10 @@
     border: 1px solid #f0dcb2;
   }
 
-  .fail-banner.danger { background: var(--danger-bg); border-color: #f1c9c0; }
+  .fail-banner.danger {
+    background: var(--danger-bg);
+    border-color: #f1c9c0;
+  }
 
   .fail-banner .fail-title {
     font-size: 13.5px;
@@ -518,7 +672,9 @@
     gap: 6px;
   }
 
-  .fail-banner.danger .fail-title { color: var(--danger); }
+  .fail-banner.danger .fail-title {
+    color: var(--danger);
+  }
 
   .fail-banner .fail-desc {
     margin-top: 5px;
@@ -548,7 +704,9 @@
     cursor: pointer;
   }
 
-  .retry-btn:active { opacity: 0.85; }
+  .retry-btn:active {
+    opacity: 0.85;
+  }
 
   .info-list {
     margin-top: 24px;
@@ -568,12 +726,19 @@
     font-size: 13px;
   }
 
-  .info-row.wide { grid-column: 1 / -1; }
+  .info-row.wide {
+    grid-column: 1 / -1;
+  }
 
-  .info-row .k { color: var(--ink-faint); font-size: 11px; }
-  .info-row .v { font-weight: 600; word-break: break-all; }
+  .info-row .k {
+    color: var(--ink-faint);
+    font-size: 11px;
+  }
 
-
+  .info-row .v {
+    font-weight: 600;
+    word-break: break-all;
+  }
 
   /* =========================================================
      TEST MODE FAB
@@ -581,7 +746,8 @@
 
   .test-fab {
     position: fixed;
-    right: 22px; bottom: 22px;
+    right: 22px;
+    bottom: 22px;
     z-index: 45;
     background: var(--ink);
     color: #fff;
@@ -598,7 +764,12 @@
     cursor: pointer;
   }
 
-  .test-fab .dot { width: 7px; height: 7px; border-radius: 50%; background: #9fe3c0; }
+  .test-fab .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #9fe3c0;
+  }
 
   .test-panel {
     position: fixed;
@@ -616,7 +787,11 @@
     transition: 0.18s ease;
   }
 
-  .test-panel.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: auto; }
+  .test-panel.open {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
 
   .test-panel-title {
     font-size: 11.5px;
@@ -639,7 +814,9 @@
     margin-bottom: 8px;
   }
 
-  .test-reset-btn:hover { background: #f6f8f9; }
+  .test-reset-btn:hover {
+    background: #f6f8f9;
+  }
 
   .test-eval-log {
     margin-top: 8px;
@@ -656,10 +833,21 @@
     gap: 8px;
   }
 
-  .test-eval-log .row .k { color: var(--ink-faint); }
-  .test-eval-log .row .v { font-weight: 700; }
-  .test-eval-log .row .v.fresh { color: var(--fresh); }
-  .test-eval-log .row .v.stale { color: var(--stale); }
+  .test-eval-log .row .k {
+    color: var(--ink-faint);
+  }
+
+  .test-eval-log .row .v {
+    font-weight: 700;
+  }
+
+  .test-eval-log .row .v.fresh {
+    color: var(--fresh);
+  }
+
+  .test-eval-log .row .v.stale {
+    color: var(--stale);
+  }
 
   .test-eval-block-title {
     font-size: 11px;
@@ -692,24 +880,70 @@
     justify-content: space-between;
   }
 
-  .test-btn:hover { background: #f1f4f6; }
-  .test-btn.active { background: var(--ink); color: #fff; }
-  .test-btn .code { font-size: 10.5px; opacity: 0.65; }
+  .test-btn:hover {
+    background: #f1f4f6;
+  }
+
+  .test-btn.active {
+    background: var(--ink);
+    color: #fff;
+  }
+
+  .test-btn .code {
+    font-size: 10.5px;
+    opacity: 0.65;
+  }
 
   /* =========================================================
-     최소 모바일 안전망 (우선순위 낮음 — 깨지지만 않도록)
+     최소 모바일 안전망
   ========================================================= */
 
   @media (max-width: 760px) {
-    .layout { grid-template-columns: 1fr; padding: 18px; }
-    .station-list { flex-direction: row; overflow-x: auto; }
-    .station-card { min-width: 240px; flex-shrink: 0; }
-    .station-card .name { font-size: 30px; }
-    .station-card .mini-value { font-size: 22px; }
-    .topbar { padding: 14px 16px; }
-    .value-row .value { font-size: 32px; }
-    .test-fab { right: 16px; bottom: 16px; }
-    .test-panel { right: 16px; bottom: 68px; }
+    .layout {
+      grid-template-columns: 1fr;
+      padding: 18px;
+    }
+
+    .station-list {
+      flex-direction: row;
+      overflow-x: auto;
+    }
+
+    .station-card {
+      min-width: 240px;
+      flex-shrink: 0;
+    }
+
+    .station-toolbar {
+      width: 100%;
+      flex: 0 0 100%;
+    }
+
+    .station-card .name {
+      font-size: 30px;
+    }
+
+    .station-card .mini-value {
+      font-size: 22px;
+    }
+
+    .topbar {
+      padding: 14px 16px;
+    }
+
+    .value-row .value {
+      font-size: 32px;
+    }
+
+    .test-fab {
+      right: 16px;
+      bottom: 16px;
+    }
+
+    .test-panel {
+      right: 16px;
+      bottom: 68px;
+    }
   }
 </style>
 </head>
@@ -722,6 +956,7 @@
       <p>대구 지역 강 수위 정보</p>
     </div>
   </div>
+
   <div class="status-pill" id="globalStatus">
     <span class="status-dot"></span>
     <span id="globalStatusText">데이터 정상</span>
@@ -736,6 +971,7 @@
 <button class="test-fab" id="testFab" onclick="toggleTestPanel()">
   <span class="dot"></span> TEST MODE
 </button>
+
 <div class="test-panel" id="testPanel">
   <div class="test-panel-title">합성 재생 · 실패 시나리오</div>
   <button class="test-reset-btn" onclick="resetTestMode()">↻ 테스트 초기화</button>
@@ -746,19 +982,31 @@
 <script>
 /* =========================================================================================
    0. 관측소 메타데이터
-   station1(2012695, 강창교)만 실제 list/10M 응답까지 검증됨. 나머지는 후보 코드.
 ========================================================================================= */
 
 const STATION_META = {
-  station1: { wlobscd: "2012695", name: "강창교", river: "낙동강", addr: "대구광역시 달서구" },
-  station2: { wlobscd: "2012667", name: "수성교", river: "신천",   addr: "대구광역시 수성구 수성동1가" },
-  station3: { wlobscd: "2012672", name: "운암교", river: "금호강", addr: "대구광역시 북구 구암동" }
+  station1: {
+    wlobscd: "2012695",
+    name: "강창교",
+    river: "낙동강",
+    addr: "대구광역시 달서구"
+  },
+  station2: {
+    wlobscd: "2012667",
+    name: "수성교",
+    river: "신천",
+    addr: "대구광역시 수성구 수성동1가"
+  },
+  station3: {
+    wlobscd: "2012672",
+    name: "운암교",
+    river: "금호강",
+    addr: "대구광역시 북구 구암동"
+  }
 };
 
-const WAVE_MAX_REF = 2.5; // 물결 채움 비율 계산용 임의 스케일(공식 위험수위 아님, 시각적 표현일 뿐)
+const WAVE_MAX_REF = 2.5;
 
-/* 강 정체성 색 — 값/위험도와 무관하게 "어느 강인가"만 나타냄. 전부 파랑 계열 안에서만 톤 차이.
-   STALE 상태에서는 이 색과 무관하게 항상 회색으로 덮어써서 장애 신호와 완전히 분리함. */
 const RIVER_WAVE_VAR = {
   "낙동강": "--river-nakdong",
   "신천": "--river-sincheon",
@@ -766,37 +1014,24 @@ const RIVER_WAVE_VAR = {
 };
 
 /* =========================================================================================
-   1. 더미 원자료 — 이제 사용하지 않습니다. 참고용으로 주석만 남겨둡니다.
-   (실제 데이터는 scripts/fetch-and-store.mjs가 authKey로 받아서 data/readings.json에 저장하고,
-    브라우저는 그 파일만 읽습니다 — 브라우저는 authKey를 절대 몰라도 됩니다.)
+   1. 데이터 로딩
 ========================================================================================= */
 
-// const DUMMY_RAW_TODAY = {
-//   "2012695": { wlobscd: "2012695", ymdhm: "202609021410", wl: "1.14", fw: "40.84", links: [] },
-//   "2012667": { wlobscd: "2012667", ymdhm: "202609021410", wl: "0.42", fw: "6.21",  links: [] },
-//   "2012672": { wlobscd: "2012672", ymdhm: "202609021410", wl: "0.68", fw: "11.05", links: [] }
-// };
-//
-// const DUMMY_RAW_YESTERDAY = {
-//   "2012695": { wlobscd: "2012695", ymdhm: "202609011420", wl: "1.02", fw: "35.10", links: [] },
-//   "2012667": { wlobscd: "2012667", ymdhm: "202609011420", wl: "0.46", fw: "6.80",  links: [] },
-//   "2012672": { wlobscd: "2012672", ymdhm: "202609011420", wl: "0.68", fw: "11.00", links: [] }
-// };
-
-/* =========================================================================================
-   2. 데이터 로딩 — data/readings.json 하나만 읽습니다 (authKey 없음, 정적 파일)
-   이 파일은 scripts/fetch-and-store.mjs를 로컬(또는 GitHub Actions)에서 실행해야 생깁니다.
-   같은 signal_id(=관측소)의 기록을 record_date 기준으로 정렬해서 최신 2건을 씁니다.
-========================================================================================= */
-
-let READINGS_CACHE = null; // 파일을 한 번만 fetch해서 재사용
+let READINGS_CACHE = null;
 
 async function loadReadingsFile() {
   if (READINGS_CACHE) return READINGS_CACHE;
-  const res = await fetch("./data/readings.json", { cache: "no-store" });
+
+  const res = await fetch("./data/readings.json", {
+    cache: "no-store"
+  });
+
   if (!res.ok) {
-    throw new Error("아직 저장된 기록이 없습니다. scripts/fetch-and-store.mjs를 먼저 실행하세요.");
+    throw new Error(
+      "아직 저장된 기록이 없습니다. scripts/fetch-and-store.mjs를 먼저 실행하세요."
+    );
   }
+
   READINGS_CACHE = await res.json();
   return READINGS_CACHE;
 }
@@ -804,46 +1039,157 @@ async function loadReadingsFile() {
 async function loadStationReadings(wlobscd) {
   const all = await loadReadingsFile();
   const signalId = `hrfco-${wlobscd}`;
+
   const records = all
     .filter(r => r.signal_id === signalId)
-    .sort((a, b) => b.record_date.localeCompare(a.record_date)); // 최신순
-  return { today: records[0] || null, yesterday: records[1] || null };
+    .sort((a, b) => b.record_date.localeCompare(a.record_date));
+
+  return {
+    today: records[0] || null,
+    yesterday: records[1] || null
+  };
 }
 
-
 /* =========================================================================================
-   4. 합성 실패 fixture (adapter-reset.example.js와 동일 값)
+   2. 합성 실패 fixture
 ========================================================================================= */
 
 const FIXTURES = {
-  NORMAL:  { freshness: "fresh", error_code: "none",        value: 105, label: "정상" },
-  TIMEOUT: { freshness: "stale", error_code: "timeout",      value: 105, title: "응답 지연",       desc: "외부 데이터 서버의 응답이 늦어지고 있습니다." },
-  AUTH:    { freshness: "stale", error_code: "auth",         value: 105, title: "접근 거부",       desc: "외부 데이터 제공 서버에서 요청을 거부했습니다.", danger: true },
-  RATE:    { freshness: "stale", error_code: "rate_limit",   value: 105, title: "요청 제한",       desc: "짧은 시간 동안 너무 많은 요청이 발생했습니다." },
-  OFFLINE: { freshness: "stale", error_code: "offline",      value: 105, title: "연결 없음",       desc: "인터넷 연결을 확인해주세요.", danger: true },
-  SCHEMA:  { freshness: "stale", error_code: "schema_error", value: 105, title: "데이터 형식 변경", desc: "외부 데이터 형식이 변경되어 값을 안전하게 읽을 수 없습니다." },
-  RECOVER: { freshness: "fresh", error_code: "none",         value: 120, label: "복구됨 · 다음 날짜 기록 +1" }
+  NORMAL: {
+    freshness: "fresh",
+    error_code: "none",
+    value: 105,
+    label: "정상"
+  },
+
+  TIMEOUT: {
+    freshness: "stale",
+    error_code: "timeout",
+    value: 105,
+    title: "응답 지연",
+    desc: "외부 데이터 서버의 응답이 늦어지고 있습니다."
+  },
+
+  AUTH: {
+    freshness: "stale",
+    error_code: "auth",
+    value: 105,
+    title: "접근 거부",
+    desc: "외부 데이터 제공 서버에서 요청을 거부했습니다.",
+    danger: true
+  },
+
+  RATE: {
+    freshness: "stale",
+    error_code: "rate_limit",
+    value: 105,
+    title: "요청 제한",
+    desc: "짧은 시간 동안 너무 많은 요청이 발생했습니다."
+  },
+
+  OFFLINE: {
+    freshness: "stale",
+    error_code: "offline",
+    value: 105,
+    title: "연결 없음",
+    desc: "인터넷 연결을 확인해주세요.",
+    danger: true
+  },
+
+  SCHEMA: {
+    freshness: "stale",
+    error_code: "schema_error",
+    value: 105,
+    title: "데이터 형식 변경",
+    desc: "외부 데이터 형식이 변경되어 값을 안전하게 읽을 수 없습니다."
+  },
+
+  RECOVER: {
+    freshness: "fresh",
+    error_code: "none",
+    value: 120,
+    label: "복구됨 · 다음 날짜 기록 +1"
+  }
 };
 
 /* =========================================================================================
-   5. 상태 & 렌더링
+   3. 상태 & 렌더링
 ========================================================================================= */
 
-let currentStationId = "station1"; // 목록이 고정이니 처음부터 하나를 보여줌
+let currentStationId = "station1";
 let currentTestMode = null;
-let currentTab = "today"; // "today" | "log"
+let currentTab = "today";
 let stationCache = {};
 let isLoading = false;
 
+/* ---------- 관측소 정렬 상태 ---------- */
+
+let stationSort = "default";
+
+function getSortedStationEntries() {
+  const entries = Object.entries(STATION_META);
+
+  if (stationSort === "default") {
+    return entries;
+  }
+
+  return [...entries].sort(([idA], [idB]) => {
+    const valueA = stationCache[idA]?.today?.normalized_value;
+    const valueB = stationCache[idB]?.today?.normalized_value;
+
+    const validA = Number.isFinite(valueA);
+    const validB = Number.isFinite(valueB);
+
+    /*
+     * 아직 데이터가 없는 관측소는
+     * 정렬 기준과 관계없이 뒤쪽으로 보냄
+     */
+    if (!validA && !validB) return 0;
+    if (!validA) return 1;
+    if (!validB) return -1;
+
+    if (stationSort === "desc") {
+      return valueB - valueA;
+    }
+
+    return valueA - valueB;
+  });
+}
+
+function changeStationSort(sort) {
+  stationSort = sort;
+  renderStationList();
+}
+
 function computeDelta(today, yesterday) {
   const diff = +(today - yesterday).toFixed(2);
-  if (diff > 0) return { text: `▲ ${diff} m`, cls: "up" };
-  if (diff < 0) return { text: `▼ ${Math.abs(diff)} m`, cls: "down" };
-  return { text: "–", cls: "same" }; // 변화 없음을 텍스트 대신 기호로
+
+  if (diff > 0) {
+    return {
+      text: `▲ ${diff} m`,
+      cls: "up"
+    };
+  }
+
+  if (diff < 0) {
+    return {
+      text: `▼ ${Math.abs(diff)} m`,
+      cls: "down"
+    };
+  }
+
+  return {
+    text: "–",
+    cls: "same"
+  };
 }
 
 function waveFillPercent(value) {
-  const pct = Math.max(15, Math.min(92, (value / WAVE_MAX_REF) * 100));
+  const pct = Math.max(
+    15,
+    Math.min(92, (value / WAVE_MAX_REF) * 100)
+  );
+
   return pct;
 }
 
@@ -851,45 +1197,144 @@ function waveFillPercent(value) {
 
 function renderStationList() {
   const list = document.getElementById("stationList");
-  list.innerHTML = Object.entries(STATION_META).map(([id, meta]) => {
-    const cache = stationCache[id];
-    const isCurrent = id === currentStationId;
-    const fx = (isCurrent && currentTestMode) ? FIXTURES[currentTestMode] : null;
 
-    let valueHtml = `<span class="mini-value">···</span>`;
-    let deltaHtml = "";
-    let dotCls = "fresh";
+  const toolbarHtml = `
+    <div class="station-toolbar">
+      <span class="station-toolbar-label">관측소 정렬</span>
 
-    if (cache && !cache.error) {
-      const val = fx ? fx.value : cache.today.normalized_value;
-      const fresh = !fx || fx.freshness === "fresh";
-      dotCls = fresh ? "fresh" : (fx?.danger ? "danger" : "stale");
-      valueHtml = `<span class="mini-value">${val.toFixed(2)}<span style="font-size:24px;font-weight:400;color:var(--ink-faint);"> m</span></span>`;
-      if (!fresh) {
-        deltaHtml = `<span class="mini-delta stale">STALE</span>`;
-      } else if (cache.yesterday) {
-        const d = computeDelta(val, cache.yesterday.normalized_value);
-        deltaHtml = `<span class="mini-delta ${d.cls}">${d.text}</span>`;
-      }
-    } else if (cache?.error) {
-      dotCls = "danger";
-      valueHtml = `<span class="mini-value" style="font-size:14px;color:var(--ink-faint);">오류</span>`;
-    }
+      <select
+        class="station-sort"
+        onchange="changeStationSort(this.value)"
+        aria-label="관측소 정렬 기준"
+      >
+        <option
+          value="default"
+          ${stationSort === "default" ? "selected" : ""}
+        >
+          기본 순서
+        </option>
 
-    return `
-      <button class="station-card ${isCurrent ? "active" : ""}" onclick="selectStation('${id}')">
-        <div class="row-top">
-          <span class="name">${meta.river} · ${meta.name}</span>
-          <span class="value-wrap">
-            ${deltaHtml}
-            ${valueHtml}
-            <span class="card-dot ${dotCls}"></span>
+        <option
+          value="desc"
+          ${stationSort === "desc" ? "selected" : ""}
+        >
+          수위 높은 순
+        </option>
+
+        <option
+          value="asc"
+          ${stationSort === "asc" ? "selected" : ""}
+        >
+          수위 낮은 순
+        </option>
+      </select>
+    </div>
+  `;
+
+  const stationCards = getSortedStationEntries()
+    .map(([id, meta]) => {
+      const cache = stationCache[id];
+      const isCurrent = id === currentStationId;
+      const fx =
+        (isCurrent && currentTestMode)
+          ? FIXTURES[currentTestMode]
+          : null;
+
+      let valueHtml = `<span class="mini-value">···</span>`;
+      let deltaHtml = "";
+      let dotCls = "fresh";
+
+      if (cache && !cache.error) {
+        const val = fx
+          ? fx.value
+          : cache.today.normalized_value;
+
+        const fresh =
+          !fx ||
+          fx.freshness === "fresh";
+
+        dotCls = fresh
+          ? "fresh"
+          : (fx?.danger ? "danger" : "stale");
+
+        valueHtml = `
+          <span class="mini-value">
+            ${val.toFixed(2)}
+            <span
+              style="
+                font-size:24px;
+                font-weight:400;
+                color:var(--ink-faint);
+              "
+            >
+              m
+            </span>
           </span>
-        </div>
-        <div class="addr-tag">${meta.addr}</div>
-      </button>
-    `;
-  }).join("");
+        `;
+
+        if (!fresh) {
+          deltaHtml = `
+            <span class="mini-delta stale">
+              STALE
+            </span>
+          `;
+        } else if (cache.yesterday) {
+          const d = computeDelta(
+            val,
+            cache.yesterday.normalized_value
+          );
+
+          deltaHtml = `
+            <span class="mini-delta ${d.cls}">
+              ${d.text}
+            </span>
+          `;
+        }
+      } else if (cache?.error) {
+        dotCls = "danger";
+
+        valueHtml = `
+          <span
+            class="mini-value"
+            style="
+              font-size:14px;
+              color:var(--ink-faint);
+            "
+          >
+            오류
+          </span>
+        `;
+      }
+
+      return `
+        <button
+          class="station-card ${isCurrent ? "active" : ""}"
+          onclick="selectStation('${id}')"
+        >
+          <div class="row-top">
+            <span class="name">
+              ${meta.river} · ${meta.name}
+            </span>
+
+            <span class="value-wrap">
+              ${deltaHtml}
+              ${valueHtml}
+
+              <span class="card-dot ${dotCls}"></span>
+            </span>
+          </div>
+
+          <div class="addr-tag">
+            ${meta.addr}
+          </div>
+        </button>
+      `;
+    })
+    .join("");
+
+  list.innerHTML =
+    toolbarHtml +
+    stationCards;
 }
 
 /* ---------- 관측소 선택 ---------- */
@@ -899,6 +1344,7 @@ async function selectStation(id) {
   currentTestMode = null;
   lastTestKey = undefined;
   currentTab = "today";
+
   renderStationList();
   renderTestButtons();
   renderTestEvalLog();
@@ -906,14 +1352,31 @@ async function selectStation(id) {
   if (!stationCache[id]) {
     isLoading = true;
     renderDetail();
+
     try {
       const meta = STATION_META[id];
-      const { today, yesterday } = await loadStationReadings(meta.wlobscd);
-      if (!today) throw new Error("이 관측소의 저장된 기록이 아직 없습니다.");
-      stationCache[id] = { today, yesterday };
+
+      const {
+        today,
+        yesterday
+      } = await loadStationReadings(meta.wlobscd);
+
+      if (!today) {
+        throw new Error(
+          "이 관측소의 저장된 기록이 아직 없습니다."
+        );
+      }
+
+      stationCache[id] = {
+        today,
+        yesterday
+      };
     } catch (e) {
-      stationCache[id] = { error: e.message };
+      stationCache[id] = {
+        error: e.message
+      };
     }
+
     isLoading = false;
     renderStationList();
   }
@@ -927,13 +1390,37 @@ function renderDetail() {
   const panel = document.getElementById("detailPanel");
   const meta = STATION_META[currentStationId];
 
-  if (isLoading && !stationCache[currentStationId]) {
+  if (
+    isLoading &&
+    !stationCache[currentStationId]
+  ) {
     panel.innerHTML = `
-      <div class="panel-eyebrow">한강홍수통제소 · ${meta.addr}</div>
-      <div class="panel-title-row"><h2>${meta.river} · ${meta.name}</h2></div>
-      <div class="wave-box" style="background:#eef1f3;"></div>
-      <div style="margin-top:16px;color:var(--ink-faint);font-size:13px;">불러오는 중…</div>
+      <div class="panel-eyebrow">
+        한강홍수통제소 · ${meta.addr}
+      </div>
+
+      <div class="panel-title-row">
+        <h2>
+          ${meta.river} · ${meta.name}
+        </h2>
+      </div>
+
+      <div
+        class="wave-box"
+        style="background:#eef1f3;"
+      ></div>
+
+      <div
+        style="
+          margin-top:16px;
+          color:var(--ink-faint);
+          font-size:13px;
+        "
+      >
+        불러오는 중…
+      </div>
     `;
+
     return;
   }
 
@@ -941,34 +1428,109 @@ function renderDetail() {
 
   if (cache?.error) {
     panel.innerHTML = `
-      <div class="panel-eyebrow">한강홍수통제소 · ${meta.addr}</div>
-      <div class="panel-title-row"><h2>${meta.river} · ${meta.name}</h2></div>
-      <div class="fail-banner danger" style="margin-top:24px;">
-        <div class="fail-title">⚠ 조회 실패</div>
-        <div class="fail-desc">${cache.error}</div>
-        <button class="retry-btn" onclick="selectStation('${currentStationId}')">다시 시도</button>
-      </div>`;
-    updateGlobalStatus("danger", "데이터 오류");
+      <div class="panel-eyebrow">
+        한강홍수통제소 · ${meta.addr}
+      </div>
+
+      <div class="panel-title-row">
+        <h2>
+          ${meta.river} · ${meta.name}
+        </h2>
+      </div>
+
+      <div
+        class="fail-banner danger"
+        style="margin-top:24px;"
+      >
+        <div class="fail-title">
+          ⚠ 조회 실패
+        </div>
+
+        <div class="fail-desc">
+          ${cache.error}
+        </div>
+
+        <button
+          class="retry-btn"
+          onclick="selectStation('${currentStationId}')"
+        >
+          다시 시도
+        </button>
+      </div>
+    `;
+
+    updateGlobalStatus(
+      "danger",
+      "데이터 오류"
+    );
+
     return;
   }
 
-  const fx = currentTestMode ? FIXTURES[currentTestMode] : null;
-  const isFresh = !fx || fx.freshness === "fresh";
-  const badgeCls = isFresh ? "fresh" : (fx?.danger ? "danger" : "stale");
-  const badgeText = isFresh ? (fx ? fx.label : "정상") : "STALE";
+  const fx =
+    currentTestMode
+      ? FIXTURES[currentTestMode]
+      : null;
 
-  updateGlobalStatus(badgeCls, isFresh ? "데이터 정상" : "데이터 갱신 지연");
+  const isFresh =
+    !fx ||
+    fx.freshness === "fresh";
+
+  const badgeCls =
+    isFresh
+      ? "fresh"
+      : (fx?.danger ? "danger" : "stale");
+
+  const badgeText =
+    isFresh
+      ? (fx ? fx.label : "정상")
+      : "STALE";
+
+  updateGlobalStatus(
+    badgeCls,
+    isFresh
+      ? "데이터 정상"
+      : "데이터 갱신 지연"
+  );
 
   panel.innerHTML = `
-    <div class="panel-eyebrow">${cache.today.source_name} · ${STATION_META[currentStationId].addr}</div>
+    <div class="panel-eyebrow">
+      ${cache.today.source_name} ·
+      ${STATION_META[currentStationId].addr}
+    </div>
+
     <div class="panel-title-row">
-      <h2>${meta.river} · ${meta.name}</h2>
-      <span class="state-badge ${badgeCls}">${badgeText}</span>
+      <h2>
+        ${meta.river} · ${meta.name}
+      </h2>
+
+      <span class="state-badge ${badgeCls}">
+        ${badgeText}
+      </span>
     </div>
 
     <div class="tab-row">
-      <button class="tab-btn ${currentTab === "today" ? "active" : ""}" onclick="switchTab('today')">오늘</button>
-      <button class="tab-btn ${currentTab === "log" ? "active" : ""}" onclick="switchTab('log')">일별 기록</button>
+      <button
+        class="tab-btn ${
+          currentTab === "today"
+            ? "active"
+            : ""
+        }"
+        onclick="switchTab('today')"
+      >
+        오늘
+      </button>
+
+      <button
+        class="tab-btn ${
+          currentTab === "log"
+            ? "active"
+            : ""
+        }"
+        onclick="switchTab('log')"
+      >
+        일별 기록
+      </button>
     </div>
 
     <div id="tabBody"></div>
@@ -984,261 +1546,879 @@ function switchTab(tab) {
 }
 
 function renderTabBody() {
-  const body = document.getElementById("tabBody");
+  const body =
+    document.getElementById("tabBody");
+
   if (!body) return;
-  body.innerHTML = currentTab === "today" ? renderTodayTabHtml() : renderLogTabHtml();
-  if (currentTab === "today") updateQueryTime();
+
+  body.innerHTML =
+    currentTab === "today"
+      ? renderTodayTabHtml()
+      : renderLogTabHtml();
+
+  if (currentTab === "today") {
+    updateQueryTime();
+  }
 }
 
-/* ---------- '오늘' 탭: 테스트 모드 영향을 받는 실시간 상태 뷰 ---------- */
+/* ---------- 오늘 탭 ---------- */
 
 function renderTodayTabHtml() {
-  const meta = STATION_META[currentStationId];
-  const cache = stationCache[currentStationId];
-  const fx = currentTestMode ? FIXTURES[currentTestMode] : null;
-  const isFresh = !fx || fx.freshness === "fresh";
-  const todayVal = fx ? fx.value : cache.today.normalized_value;
+  const meta =
+    STATION_META[currentStationId];
 
-  const yesterdayVal = cache.yesterday ? cache.yesterday.normalized_value : null;
-  const delta = yesterdayVal !== null ? computeDelta(fx ? fx.value : cache.today.normalized_value, yesterdayVal) : null;
-  const fillPct = waveFillPercent(todayVal);
-  const yesterdayPct = yesterdayVal !== null ? waveFillPercent(yesterdayVal) : null;
+  const cache =
+    stationCache[currentStationId];
 
-  // 어제 수위선은 항상 맨 마지막(가장 앞)에 그려서 다른 레이어에 절대 안 가려지게 한다.
-  //  - up(상승)   -> wave-fill 내부, 오늘 물 속에 잠긴 위치 (submerged, 안전 여백 15~85%로 클램프)
-  //  - same       -> wave-fill의 top:0 (오늘 수면 경계선 자체, 계산 오차 없음)
-  //  - down(하락) -> wave-box 기준, 물 밖 마른 영역 (dry, 기존 방식)
-  // up과 same을 같은 방식(잠긴 선, wave-fill 마지막 자식)으로 통일한다.
-  // same은 오늘=어제라 비율이 항상 1이 되고, up은 그보다 더 아래로 내린다.
-  const showLowered = delta && (delta.cls === "up" || delta.cls === "same");
-  const isSame = delta && delta.cls === "same";
-  const rawRatioPct = showLowered ? (yesterdayPct / fillPct) * 100 : null;
-  const extraDrop = isSame ? 15 : 55; // up 케이스는 same보다 훨씬 더 아래로
-  const submergedPct = showLowered
-    ? Math.min(70, Math.max(8, rawRatioPct - extraDrop))
-    : null;
-  const dryPct = (yesterdayPct !== null && !showLowered) ? yesterdayPct : null;
+  const fx =
+    currentTestMode
+      ? FIXTURES[currentTestMode]
+      : null;
+
+  const isFresh =
+    !fx ||
+    fx.freshness === "fresh";
+
+  const todayVal =
+    fx
+      ? fx.value
+      : cache.today.normalized_value;
+
+  const yesterdayVal =
+    cache.yesterday
+      ? cache.yesterday.normalized_value
+      : null;
+
+  const delta =
+    yesterdayVal !== null
+      ? computeDelta(
+          fx
+            ? fx.value
+            : cache.today.normalized_value,
+          yesterdayVal
+        )
+      : null;
+
+  const fillPct =
+    waveFillPercent(todayVal);
+
+  const yesterdayPct =
+    yesterdayVal !== null
+      ? waveFillPercent(yesterdayVal)
+      : null;
+
+  const showLowered =
+    delta &&
+    (
+      delta.cls === "up" ||
+      delta.cls === "same"
+    );
+
+  const isSame =
+    delta &&
+    delta.cls === "same";
+
+  const rawRatioPct =
+    showLowered
+      ? (yesterdayPct / fillPct) * 100
+      : null;
+
+  const extraDrop =
+    isSame
+      ? 15
+      : 55;
+
+  const submergedPct =
+    showLowered
+      ? Math.min(
+          70,
+          Math.max(
+            8,
+            rawRatioPct - extraDrop
+          )
+        )
+      : null;
+
+  const dryPct =
+    (
+      yesterdayPct !== null &&
+      !showLowered
+    )
+      ? yesterdayPct
+      : null;
 
   return `
     <div class="wave-box">
-      ${dryPct !== null ? `
-        <div class="yesterday-line dry" style="bottom:${dryPct}%;">
-          <span>어제 · ${yesterdayVal.toFixed(2)}m</span>
-        </div>` : ""}
-      <div class="wave-fill ${!isFresh ? "stale" : ""}" style="height:${fillPct}%; --wave-color: var(${RIVER_WAVE_VAR[meta.river] || "--accent"});">
+      ${
+        dryPct !== null
+          ? `
+            <div
+              class="yesterday-line dry"
+              style="bottom:${dryPct}%;"
+            >
+              <span>
+                어제 ·
+                ${yesterdayVal.toFixed(2)}m
+              </span>
+            </div>
+          `
+          : ""
+      }
+
+      <div
+        class="wave-fill ${
+          !isFresh ? "stale" : ""
+        }"
+        style="
+          height:${fillPct}%;
+          --wave-color:
+            var(${
+              RIVER_WAVE_VAR[meta.river]
+              || "--accent"
+            });
+        "
+      >
         <div class="wave-body"></div>
-        <svg viewBox="0 0 400 44" preserveAspectRatio="none">
-          <path class="wave-back" d="M0 22 Q 50 4 100 22 T 200 22 T 300 22 T 400 22 V44 H0 Z" />
+
+        <svg
+          viewBox="0 0 400 44"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="wave-back"
+            d="
+              M0 22
+              Q 50 4 100 22
+              T 200 22
+              T 300 22
+              T 400 22
+              V44
+              H0
+              Z
+            "
+          />
         </svg>
-        <svg viewBox="0 0 400 44" preserveAspectRatio="none">
-          <path class="wave-front" d="M0 26 Q 50 10 100 26 T 200 26 T 300 26 T 400 26 V44 H0 Z" />
+
+        <svg
+          viewBox="0 0 400 44"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="wave-front"
+            d="
+              M0 26
+              Q 50 10 100 26
+              T 200 26
+              T 300 26
+              T 400 26
+              V44
+              H0
+              Z
+            "
+          />
         </svg>
-        <svg class="wave-highlight-svg" viewBox="0 0 400 44" preserveAspectRatio="none">
-          <path class="wave-highlight-path" d="M0 26 Q 50 10 100 26 T 200 26 T 300 26 T 400 26" />
+
+        <svg
+          class="wave-highlight-svg"
+          viewBox="0 0 400 44"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="wave-highlight-path"
+            d="
+              M0 26
+              Q 50 10 100 26
+              T 200 26
+              T 300 26
+              T 400 26
+            "
+          />
         </svg>
-        ${submergedPct !== null ? `
-          <div class="yesterday-line dry" style="bottom:${submergedPct}%;">
-            <span>${isSame ? "어제와 동일" : "어제"} · ${yesterdayVal.toFixed(2)}m</span>
-          </div>` : ""}
+
+        ${
+          submergedPct !== null
+            ? `
+              <div
+                class="yesterday-line dry"
+                style="bottom:${submergedPct}%;"
+              >
+                <span>
+                  ${
+                    isSame
+                      ? "어제와 동일"
+                      : "어제"
+                  }
+                  ·
+                  ${yesterdayVal.toFixed(2)}m
+                </span>
+              </div>
+            `
+            : ""
+        }
       </div>
     </div>
 
     <div class="value-row">
-      <div class="value">${todayVal.toFixed(2)}<span class="unit">m</span></div>
-      ${delta && isFresh ? `<div class="delta ${delta.cls}">${delta.text}</div>` : ""}
-    </div>
-    ${!isFresh ? `<div class="stale-flag">STALE</div>` : ""}
-    <div class="observed">${!isFresh ? "마지막 정상 관측" : "관측 시각"} · ${cache.today.source_time.replace("T", " ").slice(0, 16)} KST</div>
-    <div class="note"><span class="note-icon">ℹ</span><span>이 수치는 관측소에 설치된 수위표의 기준점(0점)으로부터 물이 찬 높이입니다. 관측소마다 기준점이 달라, 다른 관측소의 값과 그대로 비교할 수 없습니다.</span></div>
-
-    ${!isFresh ? `
-      <div class="fail-banner ${fx.danger ? "danger" : ""}">
-        <div class="fail-title">⚠ ${fx.title}</div>
-        <div class="fail-desc">${fx.desc}</div>
-        <div class="fail-note">마지막 정상값을 유지하고 있습니다. 새 데이터를 받아오지 못했을 뿐, 값이 사라지거나 0으로 바뀌지 않습니다.</div>
-        <button class="retry-btn" onclick="retry()">다시 시도</button>
+      <div class="value">
+        ${todayVal.toFixed(2)}
+        <span class="unit">m</span>
       </div>
-    ` : ""}
+
+      ${
+        delta && isFresh
+          ? `
+            <div class="delta ${delta.cls}">
+              ${delta.text}
+            </div>
+          `
+          : ""
+      }
+    </div>
+
+    ${
+      !isFresh
+        ? `<div class="stale-flag">STALE</div>`
+        : ""
+    }
+
+    <div class="observed">
+      ${
+        !isFresh
+          ? "마지막 정상 관측"
+          : "관측 시각"
+      }
+      ·
+      ${cache.today.source_time
+        .replace("T", " ")
+        .slice(0, 16)}
+      KST
+    </div>
+
+    <div class="note">
+      <span class="note-icon">ℹ</span>
+      <span>
+        이 수치는 관측소에 설치된 수위표의
+        기준점(0점)으로부터 물이 찬 높이입니다.
+        관측소마다 기준점이 달라,
+        다른 관측소의 값과 그대로 비교할 수 없습니다.
+      </span>
+    </div>
+
+    ${
+      !isFresh
+        ? `
+          <div
+            class="fail-banner ${
+              fx.danger ? "danger" : ""
+            }"
+          >
+            <div class="fail-title">
+              ⚠ ${fx.title}
+            </div>
+
+            <div class="fail-desc">
+              ${fx.desc}
+            </div>
+
+            <div class="fail-note">
+              마지막 정상값을 유지하고 있습니다.
+              새 데이터를 받아오지 못했을 뿐,
+              값이 사라지거나 0으로 바뀌지 않습니다.
+            </div>
+
+            <button
+              class="retry-btn"
+              onclick="retry()"
+            >
+              다시 시도
+            </button>
+          </div>
+        `
+        : ""
+    }
 
     <div class="info-list">
-      <div class="info-row"><span class="k">주소</span><span class="v">${meta.addr}</span></div>
-      <div class="info-row"><span class="k">관측소 코드</span><span class="v">${meta.wlobscd}</span></div>
-      <div class="info-row"><span class="k">단위</span><span class="v">m</span></div>
-      <div class="info-row"><span class="k">기준 시간대</span><span class="v">Asia/Seoul</span></div>
-      <div class="info-row"><span class="k">수집 시각</span><span class="v">${utcIsoToKstLabel(cache.today.fetched_at)}</span></div>
-      <div class="info-row"><span class="k">조회 시각</span><span class="v" id="queryTimeVal">${kstNowLabel()}</span></div>
-      <div class="info-row wide"><span class="k">데이터 수집 방식</span><span class="v">10분 단위 원천 관측 · 수동 조회(자동 갱신 아님)</span></div>
-      <div class="info-row wide"><span class="k">출처</span><span class="v">${cache.today.source_url}</span></div>
+      <div class="info-row">
+        <span class="k">주소</span>
+        <span class="v">${meta.addr}</span>
+      </div>
+
+      <div class="info-row">
+        <span class="k">관측소 코드</span>
+        <span class="v">${meta.wlobscd}</span>
+      </div>
+
+      <div class="info-row">
+        <span class="k">단위</span>
+        <span class="v">m</span>
+      </div>
+
+      <div class="info-row">
+        <span class="k">기준 시간대</span>
+        <span class="v">Asia/Seoul</span>
+      </div>
+
+      <div class="info-row">
+        <span class="k">수집 시각</span>
+        <span class="v">
+          ${utcIsoToKstLabel(
+            cache.today.fetched_at
+          )}
+        </span>
+      </div>
+
+      <div class="info-row">
+        <span class="k">조회 시각</span>
+        <span
+          class="v"
+          id="queryTimeVal"
+        >
+          ${kstNowLabel()}
+        </span>
+      </div>
+
+      <div class="info-row wide">
+        <span class="k">
+          데이터 수집 방식
+        </span>
+        <span class="v">
+          10분 단위 원천 관측 ·
+          수동 조회(자동 갱신 아님)
+        </span>
+      </div>
+
+      <div class="info-row wide">
+        <span class="k">출처</span>
+        <span class="v">
+          ${cache.today.source_url}
+        </span>
+      </div>
     </div>
 
-    ${cache.today.fetched_at ? `<div class="note"><span class="note-icon">📁</span><span>data/readings.json에서 불러온 저장값입니다. scripts/fetch-and-store.mjs 실행 결과가 바로 여기 반영됩니다.</span></div>` : ""}
-    ${currentTestMode ? `<div class="note note-test"><span class="note-icon">🧪</span><span>지금 보고 있는 값은 합성 테스트 값입니다. 실제 관측값이 아닙니다.</span></div>` : ""}
+    ${
+      cache.today.fetched_at
+        ? `
+          <div class="note">
+            <span class="note-icon">📁</span>
+            <span>
+              data/readings.json에서 불러온
+              저장값입니다.
+              scripts/fetch-and-store.mjs
+              실행 결과가 바로 여기 반영됩니다.
+            </span>
+          </div>
+        `
+        : ""
+    }
+
+    ${
+      currentTestMode
+        ? `
+          <div class="note note-test">
+            <span class="note-icon">🧪</span>
+            <span>
+              지금 보고 있는 값은
+              합성 테스트 값입니다.
+              실제 관측값이 아닙니다.
+            </span>
+          </div>
+        `
+        : ""
+    }
   `;
 }
 
-/* ---------- '일별 기록' 탭: 테스트 모드와 완전히 무관, 항상 실제 저장값만 표시 ---------- */
+/* ---------- 일별 기록 탭 ---------- */
 
 function renderLogTabHtml() {
-  const cache = stationCache[currentStationId];
-  const records = [cache.today, cache.yesterday].filter(Boolean)
-    .sort((a, b) => a.record_date.localeCompare(b.record_date)); // 오래된 순으로 정렬(재계산 기준)
+  const cache =
+    stationCache[currentStationId];
+
+  const records =
+    [
+      cache.today,
+      cache.yesterday
+    ]
+      .filter(Boolean)
+      .sort(
+        (a, b) =>
+          a.record_date.localeCompare(
+            b.record_date
+          )
+      );
 
   if (records.length === 0) {
-    return `<div class="note" style="margin-top:16px;"><span class="note-icon">📁</span><span>저장된 기록이 아직 없습니다.</span></div>`;
-  }
-
-  const rows = records.map((r, i) => {
-    const prev = records[i - 1];
-    const deltaHtml = prev ? (() => {
-      const d = computeDelta(r.normalized_value, prev.normalized_value);
-      return `<span class="log-delta ${d.cls}">${d.text}</span>`;
-    })() : `<span class="log-delta same">첫 기록</span>`;
-
     return `
-      <div class="log-row">
-        <div class="log-top">
-          <span class="log-date">${r.record_date}</span>
-          ${deltaHtml}
-        </div>
-        <div class="log-value">${r.normalized_value.toFixed(2)}<span class="unit">${r.unit}</span></div>
-        <div class="log-meta">관측 ${r.source_time.replace("T", " ").slice(0, 16)} KST · 조회 ${r.fetched_at.replace("T", " ").slice(0, 16)} UTC</div>
-        <div class="log-source">${r.source_url}</div>
+      <div
+        class="note"
+        style="margin-top:16px;"
+      >
+        <span class="note-icon">📁</span>
+        <span>
+          저장된 기록이 아직 없습니다.
+        </span>
       </div>
     `;
-  }).reverse().join(""); // 화면엔 최신순으로 표시
+  }
+
+  const rows = records
+    .map((r, i) => {
+      const prev =
+        records[i - 1];
+
+      const deltaHtml =
+        prev
+          ? (() => {
+              const d =
+                computeDelta(
+                  r.normalized_value,
+                  prev.normalized_value
+                );
+
+              return `
+                <span
+                  class="log-delta ${d.cls}"
+                >
+                  ${d.text}
+                </span>
+              `;
+            })()
+          : `
+              <span class="log-delta same">
+                첫 기록
+              </span>
+            `;
+
+      return `
+        <div class="log-row">
+          <div class="log-top">
+            <span class="log-date">
+              ${r.record_date}
+            </span>
+            ${deltaHtml}
+          </div>
+
+          <div class="log-value">
+            ${r.normalized_value.toFixed(2)}
+            <span class="unit">
+              ${r.unit}
+            </span>
+          </div>
+
+          <div class="log-meta">
+            관측
+            ${r.source_time
+              .replace("T", " ")
+              .slice(0, 16)}
+            KST · 조회
+            ${r.fetched_at
+              .replace("T", " ")
+              .slice(0, 16)}
+            UTC
+          </div>
+
+          <div class="log-source">
+            ${r.source_url}
+          </div>
+        </div>
+      `;
+    })
+    .reverse()
+    .join("");
 
   return `
-    <div class="log-list">${rows}</div>
-    <div class="note"><span class="note-icon">📁</span><span>data/readings.json 기준입니다. 스크립트를 하루 한 번씩 실행할 때마다 이 목록이 늘어납니다.</span></div>
+    <div class="log-list">
+      ${rows}
+    </div>
+
+    <div class="note">
+      <span class="note-icon">📁</span>
+      <span>
+        data/readings.json 기준입니다.
+        스크립트를 하루 한 번씩 실행할 때마다
+        이 목록이 늘어납니다.
+      </span>
+    </div>
   `;
 }
 
 function retry() {
   lastTestKey = currentTestMode;
   currentTestMode = "RECOVER";
+
   renderStationList();
   renderTestButtons();
   renderTestEvalLog();
   renderDetail();
 }
 
-function updateGlobalStatus(cls, text) {
-  const pill = document.getElementById("globalStatus");
-  pill.className = "status-pill" + (cls === "fresh" ? "" : " " + cls);
-  document.getElementById("globalStatusText").textContent = text;
+function updateGlobalStatus(
+  cls,
+  text
+) {
+  const pill =
+    document.getElementById(
+      "globalStatus"
+    );
+
+  pill.className =
+    "status-pill" +
+    (
+      cls === "fresh"
+        ? ""
+        : " " + cls
+    );
+
+  document.getElementById(
+    "globalStatusText"
+  ).textContent = text;
 }
 
-/* ---------- KST 조회 시각 (기기 시간대 무관 강제 변환) ---------- */
+/* ---------- KST 조회 시각 ---------- */
 
 function kstNowLabel() {
   const now = new Date();
-  const parts = new Intl.DateTimeFormat("en", {
-    timeZone: "Asia/Seoul",
-    year: "numeric", month: "2-digit", day: "2-digit",
-    hour: "2-digit", minute: "2-digit", hour12: false
-  }).formatToParts(now);
-  const p = Object.fromEntries(parts.map(x => [x.type, x.value]));
-  return `${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute} KST`;
+
+  const parts =
+    new Intl.DateTimeFormat(
+      "en",
+      {
+        timeZone: "Asia/Seoul",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
+      }
+    ).formatToParts(now);
+
+  const p =
+    Object.fromEntries(
+      parts.map(
+        x => [x.type, x.value]
+      )
+    );
+
+  return `
+    ${p.year}-${p.month}-${p.day}
+    ${p.hour}:${p.minute} KST
+  `;
 }
 
-// fetched_at은 UTC(Z)로 저장되어 있어서, 문자열을 그대로 자르면 안 되고
-// 실제로 Asia/Seoul 시간대로 변환해야 한다. (source_time은 이미 +09:00로 저장되어 있어 문자열 그대로 써도 됨)
-function utcIsoToKstLabel(isoString) {
-  const d = new Date(isoString);
-  const parts = new Intl.DateTimeFormat("en", {
-    timeZone: "Asia/Seoul",
-    year: "numeric", month: "2-digit", day: "2-digit",
-    hour: "2-digit", minute: "2-digit", hour12: false
-  }).formatToParts(d);
-  const p = Object.fromEntries(parts.map(x => [x.type, x.value]));
-  return `${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute} KST`;
+function utcIsoToKstLabel(
+  isoString
+) {
+  const d =
+    new Date(isoString);
+
+  const parts =
+    new Intl.DateTimeFormat(
+      "en",
+      {
+        timeZone: "Asia/Seoul",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
+      }
+    ).formatToParts(d);
+
+  const p =
+    Object.fromEntries(
+      parts.map(
+        x => [x.type, x.value]
+      )
+    );
+
+  return `
+    ${p.year}-${p.month}-${p.day}
+    ${p.hour}:${p.minute} KST
+  `;
 }
 
 function updateQueryTime() {
-  const el = document.getElementById("queryTimeVal");
+  const el =
+    document.getElementById(
+      "queryTimeVal"
+    );
+
   if (!el) return;
-  el.textContent = kstNowLabel();
+
+  el.textContent =
+    kstNowLabel();
 }
 
 /* ---------- 테스트 모드 ---------- */
 
 const TEST_MODES = [
-  { key: null,      label: "REAL",       code: "실제 값" },
-  { key: "NORMAL",  label: "NORMAL",     code: "D1-A→B" },
-  { key: "TIMEOUT", label: "TIMEOUT",    code: "느린 응답" },
-  { key: "AUTH",    label: "401 / 403",  code: "인증 거절" },
-  { key: "RATE",    label: "RATE LIMIT", code: "429" },
-  { key: "OFFLINE", label: "OFFLINE",    code: "연결 끊김" },
-  { key: "SCHEMA",  label: "SCHEMA",     code: "형식 변경" },
-  { key: "RECOVER", label: "RECOVER",    code: "D2 복구" }
+  {
+    key: null,
+    label: "REAL",
+    code: "실제 값"
+  },
+  {
+    key: "NORMAL",
+    label: "NORMAL",
+    code: "D1-A→B"
+  },
+  {
+    key: "TIMEOUT",
+    label: "TIMEOUT",
+    code: "느린 응답"
+  },
+  {
+    key: "AUTH",
+    label: "401 / 403",
+    code: "인증 거절"
+  },
+  {
+    key: "RATE",
+    label: "RATE LIMIT",
+    code: "429"
+  },
+  {
+    key: "OFFLINE",
+    label: "OFFLINE",
+    code: "연결 끊김"
+  },
+  {
+    key: "SCHEMA",
+    label: "SCHEMA",
+    code: "형식 변경"
+  },
+  {
+    key: "RECOVER",
+    label: "RECOVER",
+    code: "D2 복구"
+  }
 ];
 
 function renderTestButtons() {
-  document.getElementById("testBtnList").innerHTML = TEST_MODES.map(m => `
-    <button class="test-btn ${currentTestMode === m.key ? "active" : ""}" onclick="applyTestMode(${m.key ? `'${m.key}'` : null})">
-      <span>${m.label}</span><span class="code">${m.code}</span>
-    </button>
-  `).join("");
+  document.getElementById(
+    "testBtnList"
+  ).innerHTML =
+    TEST_MODES
+      .map(
+        m => `
+          <button
+            class="test-btn ${
+              currentTestMode === m.key
+                ? "active"
+                : ""
+            }"
+            onclick="
+              applyTestMode(
+                ${
+                  m.key
+                    ? `'${m.key}'`
+                    : "null"
+                }
+              )
+            "
+          >
+            <span>${m.label}</span>
+            <span class="code">
+              ${m.code}
+            </span>
+          </button>
+        `
+      )
+      .join("");
 }
 
-/* ---------- 테스트 모드 전용 합성 평가 상태 (실제 데이터와 완전히 분리) ----------
-   criterion-registry.json의 expected_recovery_transition을 그대로 재현한다.
-   재생 순서(README 기준): reset → D1-A(100) → D1-B(105, 행1개) → [실패 fixture] → RECOVER-D2(120, 행2개) */
+/* ---------- 테스트 평가 상태 ---------- */
 
-let lastTestKey = undefined; // 직전에 적용됐던 테스트 모드 (전이 표시용)
+let lastTestKey = undefined;
 
-function computeTestEvalState(key) {
-  if (key === null) return null; // REAL
+function computeTestEvalState(
+  key
+) {
+  if (key === null) {
+    return null;
+  }
+
   if (key === "NORMAL") {
-    return { label: "정상", freshness: "fresh", error_code: "none", rows: 1, value: 105, record_date: "2026-08-24" };
+    return {
+      label: "정상",
+      freshness: "fresh",
+      error_code: "none",
+      rows: 1,
+      value: 105,
+      record_date: "2026-08-24"
+    };
   }
+
   if (key === "RECOVER") {
-    return { label: "복구", freshness: "fresh", error_code: "none", rows: 2, value: 120, record_date: "2026-08-25" };
+    return {
+      label: "복구",
+      freshness: "fresh",
+      error_code: "none",
+      rows: 2,
+      value: 120,
+      record_date: "2026-08-25"
+    };
   }
-  // TIMEOUT / AUTH / RATE / OFFLINE / SCHEMA: D1-A→D1-B(105, 행1개) 이후 실패 → 마지막 정상값 보존
-  const codeMap = { TIMEOUT: "timeout", AUTH: "auth", RATE: "rate_limit", OFFLINE: "offline", SCHEMA: "schema_error" };
-  return { label: "실패", freshness: "stale", error_code: codeMap[key] || "unknown", rows: 1, value: 105, record_date: "2026-08-24" };
+
+  const codeMap = {
+    TIMEOUT: "timeout",
+    AUTH: "auth",
+    RATE: "rate_limit",
+    OFFLINE: "offline",
+    SCHEMA: "schema_error"
+  };
+
+  return {
+    label: "실패",
+    freshness: "stale",
+    error_code:
+      codeMap[key] || "unknown",
+    rows: 1,
+    value: 105,
+    record_date: "2026-08-24"
+  };
 }
 
-function stateBlockHtml(title, state) {
+function stateBlockHtml(
+  title,
+  state
+) {
   return `
     <div class="test-eval-block">
-      <div class="test-eval-block-title">${title}</div>
-      <div class="row"><span class="k">freshness</span><span class="v ${state.freshness}">${state.freshness}</span></div>
-      <div class="row"><span class="k">error_code</span><span class="v">${state.error_code}</span></div>
-      <div class="row"><span class="k">일별 기록(합성)</span><span class="v">${state.rows}행</span></div>
-      <div class="row"><span class="k">마지막 값</span><span class="v">${state.value}</span></div>
+      <div class="test-eval-block-title">
+        ${title}
+      </div>
+
+      <div class="row">
+        <span class="k">
+          freshness
+        </span>
+        <span
+          class="v ${state.freshness}"
+        >
+          ${state.freshness}
+        </span>
+      </div>
+
+      <div class="row">
+        <span class="k">
+          error_code
+        </span>
+        <span class="v">
+          ${state.error_code}
+        </span>
+      </div>
+
+      <div class="row">
+        <span class="k">
+          일별 기록(합성)
+        </span>
+        <span class="v">
+          ${state.rows}행
+        </span>
+      </div>
+
+      <div class="row">
+        <span class="k">
+          마지막 값
+        </span>
+        <span class="v">
+          ${state.value}
+        </span>
+      </div>
     </div>
   `;
 }
 
 function renderTestEvalLog() {
-  const el = document.getElementById("testEvalLog");
+  const el =
+    document.getElementById(
+      "testEvalLog"
+    );
+
   if (!el) return;
 
-  const current = computeTestEvalState(currentTestMode);
-  const prev = (lastTestKey !== undefined && lastTestKey !== currentTestMode) ? computeTestEvalState(lastTestKey) : null;
+  const current =
+    computeTestEvalState(
+      currentTestMode
+    );
+
+  const prev =
+    (
+      lastTestKey !== undefined &&
+      lastTestKey !== currentTestMode
+    )
+      ? computeTestEvalState(
+          lastTestKey
+        )
+      : null;
 
   if (!current) {
-    el.innerHTML = `<div class="row"><span class="k">합성 상태</span><span class="v">REAL 표시 중 (평가 상태 없음)</span></div>`;
+    el.innerHTML = `
+      <div class="row">
+        <span class="k">
+          합성 상태
+        </span>
+        <span class="v">
+          REAL 표시 중
+          (평가 상태 없음)
+        </span>
+      </div>
+    `;
+
     return;
   }
 
-  // 이전 상태가 있고 실제로 달라졌을 때만 "전이"로 보여준다 (예: 실패 → 복구)
-  if (prev && (prev.freshness !== current.freshness || prev.rows !== current.rows)) {
+  if (
+    prev &&
+    (
+      prev.freshness !==
+        current.freshness ||
+      prev.rows !== current.rows
+    )
+  ) {
     el.innerHTML = `
-      ${stateBlockHtml(prev.label, prev)}
-      <div class="test-eval-arrow">↓ ${TEST_MODES.find(m => m.key === currentTestMode)?.label || ""}</div>
-      ${stateBlockHtml(current.label, current)}
+      ${stateBlockHtml(
+        prev.label,
+        prev
+      )}
+
+      <div class="test-eval-arrow">
+        ↓
+        ${
+          TEST_MODES.find(
+            m =>
+              m.key ===
+              currentTestMode
+          )?.label || ""
+        }
+      </div>
+
+      ${stateBlockHtml(
+        current.label,
+        current
+      )}
     `;
   } else {
-    el.innerHTML = stateBlockHtml(current.label, current);
+    el.innerHTML =
+      stateBlockHtml(
+        current.label,
+        current
+      );
   }
 }
 
-async function applyTestMode(key) {
-  lastTestKey = currentTestMode;
-  currentTestMode = key;
+async function applyTestMode(
+  key
+) {
+  lastTestKey =
+    currentTestMode;
+
+  currentTestMode =
+    key;
+
   renderStationList();
   renderTestButtons();
   renderTestEvalLog();
@@ -1248,6 +2428,7 @@ async function applyTestMode(key) {
 function resetTestMode() {
   currentTestMode = null;
   lastTestKey = undefined;
+
   renderStationList();
   renderTestButtons();
   renderTestEvalLog();
@@ -1255,31 +2436,67 @@ function resetTestMode() {
 }
 
 function toggleTestPanel() {
-  document.getElementById("testPanel").classList.toggle("open");
+  document
+    .getElementById("testPanel")
+    .classList.toggle("open");
 }
 
 /* ---------- 초기화 ---------- */
 
 async function prefetchAllStations() {
-  await Promise.all(Object.keys(STATION_META).map(async (id) => {
-    if (stationCache[id]) return;
-    const meta = STATION_META[id];
-    try {
-      const { today, yesterday } = await loadStationReadings(meta.wlobscd);
-      stationCache[id] = today ? { today, yesterday } : { error: "저장된 기록이 아직 없습니다." };
-    } catch (e) {
-      stationCache[id] = { error: e.message };
-    }
-  }));
+  await Promise.all(
+    Object.keys(STATION_META)
+      .map(async id => {
+        if (stationCache[id]) {
+          return;
+        }
+
+        const meta =
+          STATION_META[id];
+
+        try {
+          const {
+            today,
+            yesterday
+          } =
+            await loadStationReadings(
+              meta.wlobscd
+            );
+
+          stationCache[id] =
+            today
+              ? {
+                  today,
+                  yesterday
+                }
+              : {
+                  error:
+                    "저장된 기록이 아직 없습니다."
+                };
+        } catch (e) {
+          stationCache[id] = {
+            error: e.message
+          };
+        }
+      })
+  );
+
   renderStationList();
 }
 
 renderStationList();
 renderTestButtons();
 renderTestEvalLog();
+
 prefetchAllStations();
-selectStation(currentStationId);
-setInterval(updateQueryTime, 30000);
+selectStation(
+  currentStationId
+);
+
+setInterval(
+  updateQueryTime,
+  30000
+);
 </script>
 
 </body>
