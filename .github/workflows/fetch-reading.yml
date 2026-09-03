@@ -1,0 +1,46 @@
+name: 강 수위 값 자동 수집
+
+# 두 가지 방법으로 실행됩니다:
+#  1) schedule: 매일 정해진 시각에 자동 실행
+#  2) workflow_dispatch: GitHub 저장소의 Actions 탭에서 "Run workflow" 버튼으로 수동 실행
+on:
+  schedule:
+    # UTC 기준 15:00 = KST(Asia/Seoul) 00:00
+    # (GitHub Actions 스케줄러는 정확히 그 분에 도는 걸 보장하진 않고, 몇 분 늦게 돌 수 있습니다)
+    - cron: '0 15 * * *'
+  workflow_dispatch: {}
+
+# 이 워크플로우가 저장소에 커밋·푸시할 수 있도록 쓰기 권한 부여
+permissions:
+  contents: write
+
+jobs:
+  fetch-reading:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node.js 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 실제 값 수집 (scripts/fetch-and-store.mjs)
+        env:
+          # 이 키는 저장소 Settings > Secrets and variables > Actions 에 등록해야 합니다.
+          # 워크플로우 로그에는 자동으로 마스킹(***) 처리되어 출력됩니다.
+          HRFCO_AUTH_KEY: ${{ secrets.HRFCO_AUTH_KEY }}
+        run: node scripts/fetch-and-store.mjs
+
+      - name: 변경사항이 있으면 커밋 & 푸시
+        run: |
+          git config user.name "river-watch-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "변경된 데이터 없음 - 커밋 생략"
+          else
+            git commit -m "chore: 강 수위 값 자동 수집 ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+            git push
+          fi
