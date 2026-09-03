@@ -155,6 +155,19 @@
     border-color: var(--accent);
   }
 
+  /* 정렬 결과를 스크린리더에 알리기 위한 시각적으로 숨김 처리된 영역 */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   .station-card {
     text-align: left;
     border: none;
@@ -968,6 +981,8 @@
   <section class="detail-panel" id="detailPanel"></section>
 </div>
 
+<div id="sortAnnounce" class="sr-only" role="status" aria-live="polite"></div>
+
 <button class="test-fab" id="testFab" onclick="toggleTestPanel()">
   <span class="dot"></span> TEST MODE
 </button>
@@ -1156,9 +1171,24 @@ function getSortedStationEntries() {
   });
 }
 
+const STATION_SORT_LABEL = {
+  default: "기본 순서",
+  desc: "수위 높은 순",
+  asc: "수위 낮은 순"
+};
+
+function announceStationSort(sort) {
+  const el = document.getElementById("sortAnnounce");
+  if (!el) return;
+
+  el.textContent =
+    `관측소 정렬 기준이 ${STATION_SORT_LABEL[sort] || sort}(으)로 변경되었습니다.`;
+}
+
 function changeStationSort(sort) {
   stationSort = sort;
   renderStationList();
+  announceStationSort(sort);
 }
 
 function computeDelta(today, yesterday) {
