@@ -64,7 +64,8 @@ function normalize(raw) {
 }
 
 async function fetchOne(wlobscd) {
-  const res = await fetch(buildLiveUrl(wlobscd));
+  const url = buildLiveUrl(wlobscd);
+  const res = await fetch(url, { signal: AbortSignal.timeout(15000) });
   if (!res.ok) {
     throw new Error(`${wlobscd} 호출 실패: HTTP ${res.status}`);
   }
@@ -94,6 +95,10 @@ async function main() {
       console.log(`✅ ${id} (${wlobscd}): ${reading.normalized_value}${reading.unit} @ ${reading.record_date}`);
     } catch (e) {
       console.error(`❌ ${id} (${wlobscd}): ${e.message}`);
+      if (e.cause) {
+        console.error(`   ↳ cause: ${e.cause.code || e.cause.message || e.cause}`);
+      }
+      console.error(`   ↳ stack: ${e.stack}`);
     }
   }
 
