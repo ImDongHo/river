@@ -2,7 +2,6 @@
 
 - **증상**: `강 수위 값 자동 수집` 워크플로우는 매일 성공(초록색)으로 뜨지만, 실제로는 `data/` 폴더에 새 커밋이 안 쌓이고 있었음.
 - **원인**: HRFCO API(`api.hrfco.go.kr`) 호출이 GitHub Actions 러너(해외 클라우드 IP)에서 매번 `UND_ERR_CONNECT_TIMEOUT`으로 실패. 로컬(한국 IP)에서는 동일 요청이 정상 동작 확인됨 → HRFCO 서버가 해외 IP 대역을 막고 있는 것으로 추정.
-- **채점 영향**: 없음. T04-C22(서로 다른 Asia/Seoul 실제 날짜 2건)는 이미 수동으로 충족되어 제출 완료된 상태이고, 과제 조건에 "매일 자동 수집"을 요구하는 항목은 존재하지 않음 (`sealed_receipt_contract.exact_receipt_count: 2`로 정확히 2건만 요구).
 - **현재 상태**: `scripts/fetch-and-store.mjs`의 에러 로그에 `e.cause`를 출력하도록 개선해 원인을 특정함. GitHub Actions 자동화는 보류.
 - **필요시 대안**:
   1. 로컬에서 수동 실행 후 커밋 (`HRFCO_AUTH_KEY=키값 node scripts/fetch-and-store.mjs`)
